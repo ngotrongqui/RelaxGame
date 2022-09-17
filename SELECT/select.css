@@ -1,0 +1,129 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+	font-family: "Rubik", sans-serif;
+}
+
+html {
+	height: 100%;
+	width: 1000px;
+	background: url(https://img5.thuthuatphanmem.vn/uploads/2021/11/08/anh-nen-gaming-4k-2160p_081451377.jpg);
+}
+
+	.content {
+		text-align: center;
+		margin-left: 300px;
+		margin-top: 20%;
+		color: white;
+	}
+	
+/* Button  */
+.wrapper {
+	display: flex;
+	justify-content: center;
+  }
+  
+  .cta {
+	  display: flex;
+	  padding: 10px 45px;
+	  text-decoration: none;
+	  font-family: 'Poppins', sans-serif;
+	  font-size: 40px;
+	  color: white;
+	  background: #40C983;;
+	  transition: 1s;
+	  box-shadow: 6px 6px 0 #c9d4d9;
+	  transform: skewX(-15deg);
+  }
+  
+  .cta:focus {
+	 outline: none; 
+  }
+  
+  .cta:hover {
+	  transition: 0.5s;
+	  box-shadow: 10px 10px 0 #c9d4d9;
+  }
+  
+  .cta span:nth-child(2) {
+	  transition: 0.5s;
+	  margin-right: 0px;
+  }
+  
+  .cta:hover  span:nth-child(2) {
+	  transition: 0.5s;
+	  margin-right: 45px;
+  }
+  
+	span {
+	  transform: skewX(15deg) 
+	}
+  
+	span:nth-child(2) {
+	  width: 20px;
+	  margin-left: 30px;
+	  position: relative;
+	  top: 12%;
+	}
+	
+  /**************SVG****************/
+  
+  path.one {
+	  transition: 0.4s;
+	  transform: translateX(-60%);
+  }
+  
+  path.two {
+	  transition: 0.5s;
+	  transform: translateX(-30%);
+  }
+  
+  .cta:hover path.three {
+	  animation: color_anim 1s infinite 0.2s;
+  }
+  
+  .cta:hover path.one {
+	  transform: translateX(0%);
+	  animation: color_anim 1s infinite 0.6s;
+  }
+  
+  .cta:hover path.two {
+	  transform: translateX(0%);
+	  animation: color_anim 1s infinite 0.4s;
+  }
+  
+  /* SVG animations */
+  
+  @keyframes color_anim {
+	  0% {
+		  fill: #c9d4d9;
+	  }
+	  50% {
+		  fill: #047f7f;
+	  }
+	  100% {
+		  fill: white;
+	  }
+  }
+
+  img {
+	height: 200px;
+	border-radius: 200%;
+  }
+
+ .select {
+	margin-left: -200px;
+	width: 1080px;
+	height: 300px;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+  }
+
+
+.select img {
+	cursor: pointer;
+	margin-bottom: 20px;
+}
+
