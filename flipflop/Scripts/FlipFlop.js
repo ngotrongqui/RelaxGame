@@ -47,7 +47,7 @@ function init() {
   currentlyFlippedArr = [];
   matchedCount = 0;
   flipCounter = 0;
-  var minutes = 0.4;
+  var minutes = 1;
   var display = document.getElementById("Timer");
   //  blockFrontImages = ["Images/pokemon1.gif",
   //     "Images/pokemon2.gif",
