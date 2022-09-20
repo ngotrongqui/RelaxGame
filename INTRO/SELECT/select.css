@@ -31,7 +31,7 @@ html {
 	  font-family: 'Poppins', sans-serif;
 	  font-size: 40px;
 	  color: white;
-	  background: #40C983;;
+	  background: #EB7F49;
 	  transition: 1s;
 	  box-shadow: 6px 6px 0 #c9d4d9;
 	  transform: skewX(-15deg);
@@ -109,7 +109,9 @@ html {
 
   img {
 	height: 200px;
-	border-radius: 200%;
+	width: 200px;
+	object-fit: cover;
+	border-radius: 50%;
   }
 
  .select {
