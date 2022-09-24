@@ -12,7 +12,7 @@ ongtren.src="images/ongtren.png";
 ongduoi.src="images/ongduoi.png";
 
 var score=0;
-var khoangcachhaiong=120; 
+var khoangcachhaiong=120;
 
 var bee={
     x: hinhnenchinh.width/5,

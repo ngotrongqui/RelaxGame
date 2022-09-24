@@ -3,7 +3,7 @@ const cards = document.querySelectorAll(".card"),
   flipsTag = document.querySelector(".flips b"),
   refreshBtn = document.querySelector(".details button");
 
-let maxTime = 40;
+let maxTime = 10;
 let timeLeft = maxTime;
 let score = 0;
 let flips = 0;
@@ -13,12 +13,13 @@ let isPlaying = false;
 let cardOne, cardTwo, timer;
 
 function initTimer() {
-  if (timeLeft <= 0) {
-    return clearInterval(timer);
+  if (timeLeft == 0) {
+    clearInterval(timer);
+    endGame();
+    return;
   }
   timeLeft--;
   timeTag.innerText = timeLeft;
-  endGame();
 }
 
 function flipCard({ target: clickedCard }) {
@@ -26,10 +27,12 @@ function flipCard({ target: clickedCard }) {
     isPlaying = true;
     timer = setInterval(initTimer, 1000);
   }
+
   if (clickedCard !== cardOne && !disableDeck && timeLeft > 0) {
     flips++;
     flipsTag.innerText = flips;
     clickedCard.classList.add("flip");
+
     if (!cardOne) {
       return (cardOne = clickedCard);
     }
@@ -46,7 +49,8 @@ function matchCards(img1, img2) {
     matchedCard++;
     Score();
     if (matchedCard == 6 && timeLeft > 0) {
-      return clearInterval(timer);
+      clearInterval(timer);
+      endGame();
     }
     cardOne.removeEventListener("click", flipCard);
     cardTwo.removeEventListener("click", flipCard);
@@ -100,12 +104,11 @@ cards.forEach((card) => {
 function Score() {
   score += 5 * timeLeft;
   document.getElementById("score").innerHTML = score;
+  // localStorage.setItem("User", score);
 }
 function endGame() {
-  if (timeLeft == 0) {
-    document.getElementById("endgame").style.display = "block";
-    document.getElementById("your-score").innerText = score;
-  }
+  document.getElementById("endgame").style.display = "block";
+  document.getElementById("your-score").innerText = score;
 }
 let theme = "light";
 function myFunction() {
@@ -119,3 +122,40 @@ function myFunction() {
     theme = "light";
   }
 }
+// function winGame() {
+//   if (matchedCard == 6 && timeLeft > 0) {
+//     cardOne = cardTwo = "";
+//     document.getElementById("endgame").style.display = "block";
+//     document.getElementById("your-score").innerText = score;
+//   }
+// }
+// winGame();
+// function user() {
+//   localStorage.setItem("score", user);
+// }
+// function User() {
+//   if (document.getElementById("nickname-id").value) {
+//     let newAccount = {
+//       name: document.getElementById("nickname-id").value,
+//       scores: score,
+//     };
+//     userInfor.push(newAccount);
+//     localStorage.setItem("userInfor", JSON.stringify(userInfor));
+//   }
+// }
+
+document.getElementById("save").addEventListener("click", function (e) {
+  e.preventDefault();
+  console.log(document.getElementById("Flip"));
+  let user = {
+    name: document.getElementById("nickname-id").value,
+    scores: score,
+  };
+  console.log(user);
+  localStorage.setItem("user", JSON.stringify(user));
+  document.getElementById("endgame").style.display = "none";
+});
+document.getElementById("cancel").addEventListener("click", function (e) {
+  e.preventDefault();
+  document.getElementById("endgame").style.display = "none";
+});
