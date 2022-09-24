@@ -2,20 +2,19 @@ var canvas= document.getElementById('gamezone');
 var context= canvas.getContext('2d');
 var scoreshow=document.getElementById('score');
 
-var birdimg= new Image();
+var beeimg= new Image();
 var hinhnenchinh=new Image();
 var ongtren= new Image();
 var ongduoi=new Image();
-birdimg.src="images/6.png";
+beeimg.src="images/6.png";
 hinhnenchinh.src="images/nenchinh.png";
 ongtren.src="images/ongtren.png";
 ongduoi.src="images/ongduoi.png";
 
 var score=0;
-var khoangcachhaiong=140; 
-var khoangcachdenongduoi; 
+var khoangcachhaiong=120; 
 
-var bird={
+var bee={
     x: hinhnenchinh.width/5,
     y: hinhnenchinh.height/2
 }
@@ -29,7 +28,7 @@ ong[0]={
 function run(){
     
     context.drawImage(hinhnenchinh,0,0);
-    context.drawImage(birdimg,bird.x,bird.y);
+    context.drawImage(beeimg,bee.x,bee.y);
 
     for(var i=0;i<ong.length;i++){
         khoangcachdenongduoi=ongtren.height+khoangcachhaiong;
@@ -51,12 +50,12 @@ function run(){
         }
         if(ong[i].x + ongtren.width ==0 )ong.splice(0,1);
         // xóa ống khi chạy hết ảnh
-        if(ong[i].x==bird.x)score++;
+        if(ong[i].x==bee.x)score++;
         // Game over
-        if(bird.y+birdimg.height==canvas.height||
-        bird.x+birdimg.width>= ong[i].x && bird.x <= ong[i].x +ongtren.width
-        && (bird.y<=ong[i].y+ongtren.height||
-        bird.y +birdimg.height>= ong[i].y+ khoangcachdenongduoi)    
+        if(bee.y+beeimg.height==canvas.height||
+        bee.x+beeimg.width>= ong[i].x && bee.x <= ong[i].x +ongtren.width
+        && (bee.y<=ong[i].y+ongtren.height||
+        bee.y +beeimg.height>= ong[i].y+ khoangcachdenongduoi)    
         ){
             return;
         }
@@ -65,13 +64,13 @@ function run(){
 scoreshow.innerHTML=score;
 
 //rơi xuống
-    bird.y+=3;
+    bee.y+=3;
     requestAnimationFrame(run);
 }
 
 //function bay khi nhấn
 document.addEventListener("keydown",function(){
-    bird.y-=65;
+    bee.y-=65;
 })
 
 run();
